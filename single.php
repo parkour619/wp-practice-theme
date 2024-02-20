@@ -18,13 +18,18 @@ if (have_posts()) {
         ?>
  
             <main id="content" <?php post_class('site-main'); ?>>
+            <?php
+                    if (has_post_thumbnail()) {
+                        echo (get_the_post_thumbnail($post, 'large'));
+                    }
+                    ?>
  
                     <header class="page-header">
                         <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
                     </header>
  
                 <div class="page-content">
-                   
+                  
                     <?php the_content(); ?>
                     <?php wp_link_pages(); ?>
                 </div>
